@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoFinance Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #cfe0f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 900px;
+      height: 700px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .left, .right {
+      flex: 1;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left {
+      background: linear-gradient(to bottom, #007bff, #003c8f);
+      color: white;
+      text-align: center;
+    }
+
+    .left h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .left p {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .left button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .left button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .right h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .right p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .right input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    .right button {
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .right button:hover {
+      background-color: #0056b3;
+    }
+
+    .right a {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .right a:hover {
+      text-decoration: underline;
+    }
+
+    /* 👇👇 هنا السحر: تصميم الجوال */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .left, .right {
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .left h1 {
+        font-size: 26px;
+      }
+
+      .right h2 {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .right input {
+        padding: 10px;
+      }
+
+      .right button {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .left button {
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>My Portfolio</h1>
+      <p>Is Website To Create a Portfolio For You</p>
+      
+    </div>
+    <div class="right">
+      <h2>Hello Again!</h2>
+      <p>Welcome Back</p>
+      <input type="email" placeholder="Email Address" />
+      <input type="password" placeholder="Password" />
+      <button onclick="window.location.href='Form1.html'">Login</button>
+      <a href="#">Forgot Password</a>
+    </div>
+  </div>
+</body>
+</html>

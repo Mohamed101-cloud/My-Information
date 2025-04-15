@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      padding: 20px;
+    }
+
+    .portfolio-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-container:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 36px;
+      font-weight: 600;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section h3 {
+      color: #2a5298;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .section p {
+      color: #555;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+
+    .section a {
+      color: #2575fc;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .section a:hover {
+      text-decoration: underline;
+    }
+
+    /* تعديل الصورة لتكون في المنتصف */
+   /* تعديل الصورة لتكون في دائرة صغيرة */
+.profile-img-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100px; /* الحجم الصغير للصورة */
+  height: 100px; /* الحجم الصغير للصورة */
+  object-fit: cover;
+  border-radius: 50%; /* جعل الصورة في دائرة */
+  border: 4px solid #2575fc;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+
+    /* وضع الاسم تحت الصورة */
+    .name-container {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    /* لتوضيح الحسابات في الأسفل */
+    .social-links {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .social-links p {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .social-links a {
+      color: #6a11cb;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #2575fc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="portfolio-container">
+    <h2>Your Portfolio</h2>
+
+    <!-- عرض الصورة الشخصية في المنتصف -->
+    <div class="profile-img-container">
+      <img id="profile-image" src="" alt="Profile Image">
+    </div>
+
+    <!-- الاسم تحت الصورة -->
+    <div class="name-container" id="display-name"></div>
+
+    <!-- عرض المهارات تحت الاسم -->
+    <div class="section">
+      <h3>Skills</h3>
+      <p id="display-skills"></p>
+    </div>
+
+    <!-- المعلومات الشخصية -->
+    <div class="section">
+      <h3>Personal Information</h3>
+      <p><strong>Email:</strong> <span id="display-email"></span></p>
+      <p><strong>Phone:</strong> <span id="display-phone"></span></p>
+      <p><strong>Bio:</strong> <span id="display-bio"></span></p>
+    </div>
+
+    <!-- حسابات التواصل الاجتماعي -->
+    <div class="social-links">
+      <h3>Social Links</h3>
+      <p><strong>LinkedIn:</strong> <a id="display-linkedin" href="" target="_blank">LinkedIn Profile</a></p>
+      <p><strong>Twitter:</strong> <a id="display-twitter" href="" target="_blank">Twitter Profile</a></p>
+      <p><strong>Instagram:</strong> <a id="display-instagram" href="" target="_blank">Instagram Profile</a></p>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+
+      // عرض البيانات المدخلة
+      document.getElementById("display-name").textContent = userData.name;
+      document.getElementById("display-email").textContent = userData.email;
+      document.getElementById("display-phone").textContent = userData.phone;
+      document.getElementById("display-bio").textContent = userData.bio;
+      document.getElementById("display-skills").textContent = userData.skills;
+
+      // روابط التواصل الاجتماعي
+      document.getElementById("display-linkedin").href = userData.linkedin;
+      document.getElementById("display-twitter").href = userData.twitter;
+      document.getElementById("display-instagram").href = userData.instagram;
+
+      // عرض الصورة الشخصية إذا كانت موجودة
+      if (userData.image) {
+        document.getElementById("profile-image").src = userData.image;
+      }
+    };
+  </script>
+</body>
+
+</html>
