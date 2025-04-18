@@ -15,10 +15,10 @@
 
     body {
       body {
-  background: linear-gradient(to right, #1e3c72, #2a5298);
-  padding: 20px;
-  min-height: 100vh;
-}
+        background: linear-gradient(to right, #1e3c72, #2a5298);
+        padding: 20px;
+        min-height: 100vh;
+      }
 
       background: linear-gradient(to right, #1e3c72, #2a5298);
 
@@ -79,30 +79,30 @@
       font-size: 20px;
       text-size-adjust: 300px;
       background-color: white;
-  border-color: rgb(6, 95, 212);
-  border-style: solid;
-  border-width: 1px;
-  color: rgb(55, 118, 211) ;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.33s;
-  color: 0.15s;
-  padding-top:  9px;
-  padding-bottom:  9px;
-  padding-left: 16px;
-  padding-right:16px;
-  width: 70%;
-  display: block; 
-  margin-top: 20px; 
-  clear: both;
-  margin: 20px auto;
+      border-color: rgb(6, 95, 212);
+      border-style: solid;
+      border-width: 1px;
+      color: rgb(55, 118, 211);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.33s;
+      color: 0.15s;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      padding-left: 16px;
+      padding-right: 16px;
+      width: 70%;
+      display: block;
+      margin-top: 20px;
+      clear: both;
+      margin: 20px auto;
 
     }
 
     .submit-btn:hover {
-      background-color:rgb(41, 118, 211); 
-  color: white;
-      }
+      background-color: rgb(41, 118, 211);
+      color: white;
+    }
 
     @media (max-width: 768px) {
       .form-container {
@@ -145,24 +145,32 @@
         padding: 10px;
       }
     }
-  
+
     h2 {
-  font-size: 24px; /* تصغير حجم النص */
-  font-weight: 600; /* جعل الخط أكثر سمكًا */
-  text-align: center; /* محاذاة النص في المنتصف */
-  color: #4a90e2; /* تغيير اللون إلى الأزرق الجذاب */
-  text-transform: uppercase; /* تحويل النص إلى حروف كبيرة */
-  letter-spacing: 2px; /* زيادة المسافة بين الحروف */
-  margin-bottom: 20px; /* إضافة مسافة أسفل العنوان */
-  transition: all 0.3s ease; /* تأثيرات سلسة عند التفاعل */
-}
+      font-size: 24px;
+      /* تصغير حجم النص */
+      font-weight: 600;
+      /* جعل الخط أكثر سمكًا */
+      text-align: center;
+      /* محاذاة النص في المنتصف */
+      color: #4a90e2;
+      /* تغيير اللون إلى الأزرق الجذاب */
+      text-transform: uppercase;
+      /* تحويل النص إلى حروف كبيرة */
+      letter-spacing: 2px;
+      /* زيادة المسافة بين الحروف */
+      margin-bottom: 20px;
+      /* إضافة مسافة أسفل العنوان */
+      transition: all 0.3s ease;
+      /* تأثيرات سلسة عند التفاعل */
+    }
 
-h2:hover {
-  color: #000000; /* تغيير اللون عند التمرير إلى اللون البرتقالي */
-  transform: scale(1.05); /* تكبير العنوان قليلاً عند التمرير */
-}
-
-
+    h2:hover {
+      color: #000000;
+      /* تغيير اللون عند التمرير إلى اللون البرتقالي */
+      transform: scale(1.05);
+      /* تكبير العنوان قليلاً عند التمرير */
+    }
   </style>
 </head>
 
@@ -170,62 +178,59 @@ h2:hover {
   <div class="form-container">
     <h2>Create Your Portfolio</h2>
     <form id="portfolio-form">
-
-      <!-- Personal Information -->
-
       <div class="section">
-
         <h3>Personal Information</h3>
         <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Enter your full name" required>
+        <input type="text" id="name" required />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
+        <label for="city">City</label>
+        <input type="text" id="city" />
 
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number">
+        <label for="birthdate">Date of Birth</label>
+        <input type="date" id="birthdate" required />
 
         <label for="bio">Short Bio</label>
-        <textarea id="bio" placeholder="Tell us about yourself"></textarea>
-      
-       <label for="image">Choose image for you</label>
-       <input type="file" id="image" name="image" accept="image/*" >
+        <textarea id="bio"></textarea>
 
-      </div>
-
-      <!-- Skills -->
-      <div class="section">
-        <h3>Projects (if any)</h3>
         <label for="skills">Skills</label>
-        <input type="text" id="skills" placeholder="e.g., Web Development, Graphic Design">
+        <input type="text" id="skills" />
+
+        <label for="image">Choose image for you</label>
+        <input type="file" id="image" accept="image/*" />
       </div>
 
-      <!-- Contact -->
       <div class="section">
-        
         <h3>Accounts (optional)</h3>
-
         <label for="linkedin">LinkedIn</label>
-        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
-        
-        <label for="twitter">Twitter</label>
-        <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/yourprofile">
-        
-        <label for="instagram">Instagram</label>
-        <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/yourprofile">
-        
+        <input type="url" id="linkedin" />
 
+        <label for="twitter">Twitter</label>
+        <input type="url" id="twitter" />
+
+        <label for="instagram">Instagram</label>
+        <input type="url" id="instagram" />
+      </div>
+
+      <div class="section">
+        <h3>Contact Me (optional)</h3>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
       </div>
 
       <button type="submit" class="submit-btn">Create Portfolio</button>
     </form>
   </div>
+
   <script>
     document.getElementById("portfolio-form").addEventListener("submit", function (e) {
-      e.preventDefault(); // يمنع إعادة تحميل الصفحة
+      e.preventDefault();
 
-      // نجمع البيانات
       const name = document.getElementById("name").value;
+      const city = document.getElementById("city").value;
+      const birth = document.getElementById("birthdate").value;
       const email = document.getElementById("email").value;
       const phone = document.getElementById("phone").value;
       const bio = document.getElementById("bio").value;
@@ -234,13 +239,25 @@ h2:hover {
       const twitter = document.getElementById("twitter").value;
       const instagram = document.getElementById("instagram").value;
 
-      // نحفظ البيانات في المتصفح
-      localStorage.setItem("userData", JSON.stringify({
-        name, email, phone, bio, skills, linkedin, twitter, instagram
-      }));
+      const imageInput = document.getElementById("image");
+      const file = imageInput.files[0];
 
-      // ننتقل إلى صفحة العرض
-      window.location.href = "display.html";
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const imageBase64 = event.target.result;
+          localStorage.setItem("userData", JSON.stringify({
+            name, email, phone, bio, skills, linkedin, twitter, instagram, image: imageBase64, city, birth
+          }));
+          window.location.href = "display.html";
+        };
+        reader.readAsDataURL(file);
+      } else {
+        localStorage.setItem("userData", JSON.stringify({
+          name, email, phone, bio, skills, linkedin, twitter, instagram, image: "", city, birth
+        }));
+        window.location.href = "display.html";
+      }
     });
   </script>
 </body>

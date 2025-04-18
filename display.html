@@ -4,169 +4,424 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Portfolio</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      padding: 20px;
-    }
+  <title>My Information</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    .portfolio-container {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3a56d4;
+      --secondary: #7209b7;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+      --success: #38b000;
+      --info: #4cc9f0;
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    
+    .page-title {
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .page-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
       width: 100%;
       max-width: 800px;
       margin: 0 auto;
-      transition: transform 0.3s ease-in-out;
+      transition: var(--transition);
     }
-
-    .portfolio-container:hover {
-      transform: scale(1.02);
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
-
-    h2 {
-      color: #333;
+    
+    .header {
+      background: var(--gradient);
+      padding: 2.5rem 0;
       text-align: center;
-      margin-bottom: 20px;
-      font-size: 36px;
-      font-weight: 600;
+      color: white;
+      position: relative;
     }
-
+    
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: -10px;
+    }
+    
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      top: -60px; /* هذا يخليها تطلع نصها فوق الـ header */
+      z-index: 2;
+    }
+    
+    .name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: -70px;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .content {
+      padding: 2rem;
+      margin-top: -50px;
+    }
+    
     .section {
-      margin-bottom: 25px;
+      margin-bottom: 2rem;
+      position: relative;
     }
-
-    .section h3 {
-      color: #2a5298;
-      margin-bottom: 10px;
-      font-size: 24px;
+    
+    .section:last-child {
+      margin-bottom: 0;
     }
-
-    .section p {
-      color: #555;
-      margin-top: 5px;
-      font-size: 16px;
+    
+    .section-title {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      
     }
-
-    .section a {
-      color: #2575fc;
-      text-decoration: none;
-      font-size: 14px;
+    
+    .section-title i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+     
+    }
+    
+    .section-content {
+      padding-left: 1.8rem;
+      border-left: 2px solid #e9ecef;
+    }
+    
+    .info-item {
+      margin-bottom: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .info-label {
+      font-weight: 600;
+      min-width: 120px;
+      color: var(--gray);
+      margin-right: 1rem;
+    }
+    
+    .info-value {
+      flex: 1;
+      color: var(--dark);
+    }
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .skill {
+      background: #e9effb;
+      color: var(--primary);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
       font-weight: 500;
+      transition: var(--transition);
     }
-
-    .section a:hover {
-      text-decoration: underline;
+    
+    .skill:hover {
+      background: var(--primary);
+      color: white;
     }
-
-    /* تعديل الصورة لتكون في المنتصف */
-   /* تعديل الصورة لتكون في دائرة صغيرة */
-.profile-img-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-img {
-  width: 100px; /* الحجم الصغير للصورة */
-  height: 100px; /* الحجم الصغير للصورة */
-  object-fit: cover;
-  border-radius: 50%; /* جعل الصورة في دائرة */
-  border: 4px solid #2575fc;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-
-    /* وضع الاسم تحت الصورة */
-    .name-container {
-      text-align: center;
-      font-size: 24px;
-      color: #333;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    /* لتوضيح الحسابات في الأسفل */
+    
     .social-links {
-      margin-top: 30px;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
-
-    .social-links p {
-      margin-top: 10px;
-      font-size: 14px;
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1.2rem;
     }
-
-    .social-links a {
-      color: #6a11cb;
-      transition: color 0.3s;
+    
+    .linkedin {
+      background: #0077b5;
     }
-
-    .social-links a:hover {
-      color: #2575fc;
+    
+    .twitter {
+      background: #1da1f2;
+    }
+    
+    .instagram {
+      background: #e1306c;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .bio {
+      line-height: 1.7;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #495057;
+    }
+    
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .card {
+        margin: 0 auto;
+      }
+      
+      .content {
+        padding: 1.5rem;
+      }
+      
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .name {
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      
+      .page-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .profile-img {
+        width: 90px;
+        height: 90px;
+      }
+      
+      .name {
+        font-size: 1.3rem;
+      }
+      
+      .section-title {
+        font-size: 1.1rem;
+      }
+      
+      .content {
+        padding: 1.25rem;
+      }
+      
+      .section-content {
+        padding-left: 1rem;
+      }
+      
+      .info-label, 
+      .info-value {
+        width: 100%;
+      }
+      
+      .info-label {
+        margin-bottom: 0.25rem;
+      }
+      
+      .info-item {
+        margin-bottom: 1rem;
+      }
+      
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="portfolio-container">
-    <h2>Your Portfolio</h2>
-
-    <!-- عرض الصورة الشخصية في المنتصف -->
-    <div class="profile-img-container">
-      <img id="profile-image" src="" alt="Profile Image">
+  <h1 class="page-title">Personal Information</h1>
+  
+  <div class="card">
+    <div class="header"></div>
+    
+    <div class="profile-container">
+      <img id="profile-image" class="profile-img" src="" alt="Profile Image" />
+      <h2 class="name" id="display-name"></h2>
     </div>
-
-    <!-- الاسم تحت الصورة -->
-    <div class="name-container" id="display-name"></div>
-
-    <!-- عرض المهارات تحت الاسم -->
     <div class="section">
-      <h3>Skills</h3>
-      <p id="display-skills"></p>
+      <h3 class="section-title" style="margin-left: 1.5rem;">
+        <i class="fas fa-user"></i> Personal Information
+      </h3>
+      <div class="section-content">
+        <div class="info-item">
+          <div class="info-label">About Me:</div>
+          <div class="info-value">
+            <div class="bio" id="display-bio"></div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">City:</div>
+          <div class="info-value" id="display-city"></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Date of Birth:</div>
+          <div class="info-value" id="display-birth"></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Email:</div>
+          <div class="info-value" id="display-email"></div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Phone:</div>
+          <div class="info-value" id="display-phone"></div>
+        </div>
+        
+      </div>
     </div>
-
-    <!-- المعلومات الشخصية -->
-    <div class="section">
-      <h3>Personal Information</h3>
-      <p><strong>Email:</strong> <span id="display-email"></span></p>
-      <p><strong>Phone:</strong> <span id="display-phone"></span></p>
-      <p><strong>Bio:</strong> <span id="display-bio"></span></p>
-    </div>
-
-    <!-- حسابات التواصل الاجتماعي -->
-    <div class="social-links">
-      <h3>Social Links</h3>
-      <p><strong>LinkedIn:</strong> <a id="display-linkedin" href="" target="_blank">LinkedIn Profile</a></p>
-      <p><strong>Twitter:</strong> <a id="display-twitter" href="" target="_blank">Twitter Profile</a></p>
-      <p><strong>Instagram:</strong> <a id="display-instagram" href="" target="_blank">Instagram Profile</a></p>
+    <div class="content">
+      <div class="section">
+        <h3 class="section-title">
+          <i class="fas fa-code"></i> Skills
+        </h3>
+        <div class="section-content" id="skills-container"></div>
+      </div>
+      
+    
+      
+      <div class="section">
+        <h3 class="section-title">
+          <i class="fas fa-share-alt"></i> Connect with Me
+        </h3>
+        <div class="section-content">
+          <div class="social-links">
+            <a id="display-linkedin" href="" target="_blank" class="social-link linkedin">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a id="display-twitter" href="" target="_blank" class="social-link twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a id="display-instagram" href="" target="_blank" class="social-link instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
     window.onload = function () {
       const userData = JSON.parse(localStorage.getItem("userData"));
+      if (!userData) return;
 
-      // عرض البيانات المدخلة
       document.getElementById("display-name").textContent = userData.name;
       document.getElementById("display-email").textContent = userData.email;
       document.getElementById("display-phone").textContent = userData.phone;
       document.getElementById("display-bio").textContent = userData.bio;
-      document.getElementById("display-skills").textContent = userData.skills;
-
-      // روابط التواصل الاجتماعي
+      document.getElementById("display-city").textContent = userData.city;
+      document.getElementById("display-birth").textContent = userData.birth;
       document.getElementById("display-linkedin").href = userData.linkedin;
       document.getElementById("display-twitter").href = userData.twitter;
       document.getElementById("display-instagram").href = userData.instagram;
 
-      // عرض الصورة الشخصية إذا كانت موجودة
       if (userData.image) {
         document.getElementById("profile-image").src = userData.image;
+      }
+      
+      // Format skills as tags
+      const skillsContainer = document.getElementById("skills-container");
+      if (userData.skills) {
+        const skillsDiv = document.createElement("div");
+        skillsDiv.className = "skills-list";
+        
+        const skillsArray = userData.skills.split(",").map(skill => skill.trim());
+        skillsArray.forEach(skill => {
+          if (skill) {
+            const skillSpan = document.createElement("span");
+            skillSpan.className = "skill";
+            skillSpan.textContent = skill;
+            skillsDiv.appendChild(skillSpan);
+          }
+        });
+        
+        skillsContainer.appendChild(skillsDiv);
       }
     };
   </script>
 </body>
-
 </html>
